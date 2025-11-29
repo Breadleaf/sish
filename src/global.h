@@ -11,10 +11,9 @@
 #define DEBUG_MODE true
 #endif // DEBUG_MODE
 
+// used for setenv calls
 #define WRITE_ENVVAR 1
 #define KEEP_ENVVAR  0
-
-#define MAX_PATH_SIZE 4096
 
 void debug_log(const char *format, ...);
 
