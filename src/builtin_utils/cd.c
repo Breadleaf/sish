@@ -5,14 +5,10 @@
 #include <errno.h>
 
 #include "../global.h"
+#include "cd.h"
 
 void change_working_directory(char *relative_path) {
-	if (DEBUG_MODE) {
-		(void)printf(
-			"CALL: change_working_directory(%s)\n",
-			relative_path
-		);
-	}
+	debug_log("CALL: change_working_directory(%s)\n", relative_path);
 
 	char *path_to_append = relative_path;
 	
@@ -22,9 +18,7 @@ void change_working_directory(char *relative_path) {
 			(void)printf("error: getenv() failed!\n");
 			exit(1);
 		}
-		if (DEBUG_MODE) {
-			(void)printf("getenv(HOME) = '%s'\n", path_to_append);
-		}
+		debug_log("getenv(HOME) = '%s'\n", path_to_append);
 
 		if (chdir(path_to_append) != 0) {
 			(void)printf("error: chdir() failed!\n");
@@ -82,15 +76,11 @@ void change_working_directory(char *relative_path) {
 		free(aggregate_string);
 	}
 
-	if (DEBUG_MODE) {
-		(void)printf("EXIT: change_working_directory()");
-	}
+	debug_log("EXIT: change_working_directory()\n");
 }
 
 void print_working_directory() {
-	if (DEBUG_MODE) {
-		(void)printf("CALL: change_working_directory()");
-	}
+	debug_log("CALL: print_working_directory()\n");
 
 	char cwd[MAX_PATH_SIZE];
 	if (getcwd(cwd, MAX_PATH_SIZE) == NULL) {
@@ -101,7 +91,5 @@ void print_working_directory() {
 
 	(void)printf("CWD: '%s'\n", cwd);
 
-	if (DEBUG_MODE) {
-		(void)printf("EXIT: print_working_directory()");
-	}
+	debug_log("EXIT: print_working_directory()\n");
 }
