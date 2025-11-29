@@ -1,13 +1,15 @@
-SHELL:=$(shell which bash)
+SHELL := $(shell which bash)
 
-PROJ_ROOT:=$(shell git rev-parse --show-toplevel)
-PROJ_NAME:=sish
+PROJ_ROOT := $(shell git rev-parse --show-toplevel)
+PROJ_NAME := sish
 
-CC:=$(shell which cc)
+CC := $(shell which cc)
 
-C_FILES:=$(shell ls $(PROJ_ROOT)/src/*.c)
+SEARCH_DIRS := src src/builtin_utils
+C_FILES := $(foreach dir,$(SEARCH_DIRS),$(wildcard $(dir)/*.c))
+INCLUDE_DIRS := $(foreach dir,$(SEARCH_DIRS),-I $(dir))
 
-.PHONY: all help build
+.PHONY: all help build debug
 
 all: help
 
@@ -20,7 +22,7 @@ help:
 	@echo "  debug - compile the program with debug flags"
 
 build:
-	$(CC) $(C_FILES) -o $(PROJ_NAME)
+	$(CC) $(C_FILES) $(INCLUDE_DIRS) -o $(PROJ_NAME)
 
 debug:
-	$(CC) $(C_FILES) -o $(PROJ_NAME) -D DEBUG_MODE=.
+	$(CC) $(C_FILES) $(INCLUDE_DIRS) -o $(PROJ_NAME) -D DEBUG_MODE=.
