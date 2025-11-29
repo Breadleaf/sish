@@ -17,6 +17,10 @@ help:
 	@echo "  all   - print this menu"
 	@echo "  help  - print this menu"
 	@echo "  build - compile the program"
+	@echo "  debug - compile the program with debug flags"
 
 build:
 	$(CC) $(C_FILES) -o $(PROJ_NAME)
+
+debug:
+	$(CC) $(C_FILES) -o $(PROJ_NAME) -D DEBUG_MODE=.
