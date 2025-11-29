@@ -4,7 +4,7 @@
 
 WORD OF THE DAY
 
-## SiSH
+**SiSH**
 
 \[sheesh\] [Features](./features/) and [examples](./examples/)
 
