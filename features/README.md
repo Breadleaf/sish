@@ -7,4 +7,4 @@ Sish is super barebones.
 Sish will not resolve paths for you, it is on you to type them out fully.
 `whereis` are now your new best friends.
 
-TBD: Sish will only use environment variables declared in `~/.si.sh`.
+Sish config will be located at `~/.si.sh`.
