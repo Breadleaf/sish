@@ -1,0 +1,55 @@
+." https://www.golinuxcloud.com/create-man-page-template-linux-with-examples/
+
+.TH SISH 1 "December 5, 2025" "sish version 1.0" "Shell Builtins"
+.SH NAME
+sish -
+.B
+Si
+mple
+.B
+Sh
+ell
+
+.SH EXIT STATUS
+.TP
+.B
+0
+Success
+
+.TP
+.B
+1
+Failure
+
+.SH ERRNO
+.PP
+If the program enters an invalid state, not an error state, it will exit with
+exit code 1 and print the following:
+
+.BI
+error: [ERROR MESSAGE]
+
+.BI
+errno: [N]
+
+.PP
+The error message will be a representation of the function call that triggered
+the invalid state. You can then peek into what was the cause of the invalid
+state by running:
+
+.BI
+man 2 intro
+
+.PP
+Then searching the manpage for the correct errno output. On some systems you
+might also have access to the errno command which will take an integer as input
+and return the same information.
+
+.SH COPYRIGHT
+.PP
+Copyright 2025 Bradley Hutchings. All rights reserved
+https://breadleaf.github.io/
+
+.SH AUTHORS
+.PP
+This manual page was written by Bradley Hutchings <bkhnapa@gmail.com>.

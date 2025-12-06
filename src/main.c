@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 #include "builtin_utils/cd.h"
-#include "global.h"
+#include "builtin_utils/pwd.h"
 
 int main() {
+	change_working_directory("srs");
 	print_working_directory();
 	// for testing failure with errno
 	// change_working_directory("srs");
